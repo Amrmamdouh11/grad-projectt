@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Book Quotes</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta name="keywords" content="HTML,CSS,JavaScript, Quotes, API" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <h2>Bostorek</h2>
+        </div>
+        <div class="navmenu">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contactus">Contact Us</a></li>
+            <li><a href="#quote">Quotes</a></li>
+          </ul>
+          <div class="search-box">
+            <input type="search"  id="searchInput" class="search" placeholder="Search here..." />
+            <i class="bx bx-search" class="search-button"  onclick="searchQuotes()"></i>
+            <span class="clear-button" onclick="clearSearch()">X</span>
+          </div>
+ 
+          </div>
+        </div>
+      </nav>
+      <div id="quoteContainer">
+        <span class="close-button" onclick="closePopup()">X</span>
+
+      </div>
+  
+
+      <div class="main-header">
+        <div class="header">
+          <h5>Bostorek Bookstore</h5>
+          <h2>For All Your Reading Needs</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur a illum nostrum alias
+            praesentium.
+          </p>
+          <a href="" class="btn">Read More</a>
+        </div>
+        <img src="./15-ktabaa-n-thqaft-alml-lyk-qratha.jpg" alt="" />
+      </div>
+    </header>
+
+    <!----categories section--->
+    <section id="categories">
+      <div class="cat-row">
+        <div class="cat-header">
+          <h2>Books Categories</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Perspiciatis cumque nostrum amet nam vitae minus.
+          </p>
+        </div>
+
+        <div class="TTT" style="display: flex; justify-content: space-between;">
+
+            <div class="book-container" onload="getBooksByCategory('All')" data-category="All">
+              <h2>Books:</h2>
+              <ul id="bookList">
+              </ul>
+            </div>
+           <div class="Fav" style="display: block;">
+            <h2>Favourites:</h2>
+            <ul id="favritesList"></ul>
+           </div>
+           <div class="readLater" style="display: block;">
+            <h2>Read Later:</h2>
+            <ul id="readLaterList"></ul>
+           </div>
+
+         <!--  <div id="model" onclick="openTrackerModal()" style="display: none;">
+            <div id="containerr">
+              <h1>Tracker Page</h1>
+              <select id="bookSelector">
+                <!-- Dynamically populate options based on Books array 
+                <option value="" disabled selected>Select a book</option>
+              </select>
+              <h3>How many pages of this book do you want to read per day?</h3>
+              <label>Number of pages:</label>
+              <input type="number" id="pagesInput">
+              <button onclick="calculateReadingTime()">Calculate</button>
+              <p id="result"></p>
+              <button onclick="startReading()">Start Reading</button>
+              <button onclick="closeModal()" id="close">Close</button>
+            </div>
+          </div>
+           
+        -->
+            <div id="optionsModal">
+              <div id="modalContent">
+                <ul id="optionsList"></ul>
+                <button onclick="closeOptionsModal()">Close</button>
+              </div>
+            </div>
+            <div class="authors">
+              <h2 style="background-color: #4c7aaf;color: #fff;margin-top: 0px;height: 50px;text-align: center;">Authors</h2>
+              <ul id="authorsList">
+                <li>
+                    <span class="authorName" onclick="getBooksByAuthor('Harper Lee')">Harper Lee</span>
+                </li>
+                <li>
+                  <span class="authorName" onclick="getBooksByAuthor('F. Scott Fitzgerald')">F. Scott Fitzgerald</span>
+                </li>
+                <li>
+                  <span class="authorName" onclick="getBooksByAuthor('George Orwell')">George Orwell</span>
+                </li>
+                <li>
+                  <span class="authorName" onclick="getBooksByAuthor('Gillian Flynn')">Gillian Flynn</span>
+                </li>
+                <li>
+                  <span class="authorName" onclick="getBooksByAuthor('Dan Brown')">Dan Brown</span>
+                </li>
+                <li>
+                  <span class="authorName" onclick="getBooksByAuthor('George R.R. Martin')">George R.R. Martin</span>
+                </li>
+                <li>
+                  <span class="authorName" onclick="getBooksByAuthor('J.R.R. Tolkien')">J.R.R. Tolkien</span>
+                </li>
+                <li>
+                  <span class="authorName" onclick="getBooksByAuthor('Stieg Larsson')">Stieg Larsson</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+  
+
+         <div class="cat-books">
+          <div class="books" onclick="getBooksByCategory('All')" data-category="All">
+            <div class="book-img">
+              <img src="./text-book.png" alt="" width="100%" />
+            </div>
+            <h4>Textbooks</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Perspiciatis cumque nostrum amet nam vitae minus.
+            </p>
+          </div>
+
+          <div class="books" onclick="getBooksByCategory('science')" data-category="science">
+            <div class="book-img">
+              <img src="./data.png" alt="" width="100%" />
+            </div>
+            <h4>science</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Perspiciatis cumque nostrum amet nam vitae minus.
+            </p>
+          </div>
+
+          <div class="books" onclick="getBooksByCategory('fiction')" data-category="fiction">
+            <div class="book-img">
+              <img src="./cyborg.png" alt="" width="100%" />
+            </div>
+            <h4>Fiction</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Perspiciatis cumque nostrum amet nam vitae minus.
+            </p>
+          </div>
+        </div>
+
+        <div class="cat-books">
+          <div class="books" onclick="getBooksByCategory('Biography')" data-category="Biography">
+            <div class="book-img">
+              <img src="./biography.png" alt="" width="100%" />
+            </div>
+            <h4>Biography</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Perspiciatis cumque nostrum amet nam vitae minus.
+            </p>
+          </div>
+
+          <div class="books" onclick="getBooksByCategory('mystery')" data-category="mystery">
+            <div class="book-img">
+              <img src="./box.png" alt="" width="100%" />
+            </div>
+            <h4>Mystery</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Perspiciatis cumque nostrum amet nam vitae minus.
+            </p>
+          </div>
+
+          <div class="books" onclick="getBooksByCategory('fantasy')" data-category="fantasy">
+            <div class="book-img">
+              <img src="./book.png" alt="" width="100%" />
+            </div>
+            <h4>Fantasy</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Perspiciatis cumque nostrum amet nam vitae minus.
+            </p>
+          </div>
+        </div>
+
+       </div>
+
+        
+
+
+  
+
+<div id="track" >
+  <h2>Add to tracker:</h2>
+  <div id="sos" >
+    <select id="bookSelector" style="  padding: 10px;
+    border-radius: 50px;
+    font-size: 16px;">
+      <option value="" disabled selected >Select a book</option>
+      <div id="readingList"></div>
+
+    </select>
+    <h3>How many pages of this book do you want to read per day?</h3>
+                <label style="font-size: 1.2rem;">Number of pages:</label>
+                <input type="number" id="pagesInput" style="  padding: 10px;
+                border-radius: 50px;
+                font-size: 16px;">
+                <button onclick="calculateReadingTime()" id="next">Calculate</button>
+                <p id="result"></p>
+                <button  onclick="startReading()" id="next">Start Reading</button>
+  </div>
+
+
+</div>
+              <!-- Add a div to display the list of books -->
+<div id="readingList" >
+  <h3>You started reading:</h3>
+
+</div> 
+
+    </section>
+
+  
+    <!---about section-->
+    <section id="about">
+      <div class="set-row">
+        <img src="./th.jpeg" alt="" />
+        <div class="about-content">
+          <h2>About Our Bookstore</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis
+            aspernatur repellendus et, excepturi voluptatum praesentium illum ex
+            suscipit quod exercitationem necessitatibus nihil a iusto dolorum
+            vel fugit vero eum similique.
+          </p>
+          <a href="#" class="btn2">Read More</a>
+        </div>
+      </div>
+    </section>
+
+    <!--blog section-->
+    <section id="blog">
+      <h2 class="blog-header">Form Our Blog</h2>
+      <div class="set-row">
+        <div class="col">
+          <img src="./images.jpeg" alt="" />
+          <h4>Eius, dolor? Vel velit sed doloremque</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
+            repellat eaque in quod quae ipsam? Culpa nam suscipit consequuntur
+            eveniet nobis placeat dolorum numquam ut fugit deserunt. Saepe, vero
+            asperiores.
+          </p>
+          <a href="#">Read More</a>
+          <div class="dates">
+            <span>19 January 2020</span>
+          </div>
+        </div>
+
+        <div class="col">
+            <img src="./images (1).jpeg" alt="" />
+            <h4>Eius, dolor? Vel velit sed doloremque</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
+              repellat eaque in quod quae ipsam? Culpa nam suscipit consequuntur
+              eveniet nobis placeat dolorum numquam ut fugit deserunt. Saepe, vero
+              asperiores.
+            </p>
+            <a href="#">Read More</a>
+            <div class="dates">
+              <span>19 January 2023</span>
+            </div>
+          </div>
+      </div>
+    </section>
+
+
+   
+
+    <div class="container">
+      <!-- Quote to be Displayed Here -->
+      <h1>
+        <i class="fas fa-quote-left"></i>
+        <span class="quote" id="quote"></span>
+        <i class="fas fa-quote-right"></i>
+      </h1>
+      <!-- Author to be Displayed Here -->
+      <p class="author" id="author"></p>
+
+      <hr />
+      <div class="buttons">
+       
+
+        <!-- Add an onclick event on 'next quote' button. Upon the click of a button, a new random quote is generated -->
+        <button class="next" onclick="getNewQuote()">Next quote</button>
+      </div>
+    </div>
+
+
+
+
+    
+    <!--
+      <div id="quoteBar">
+        <p id="quoteText"></p>
+      </div>
+  
+  <h1>قسم الكتب</h1>
+  <section id="booksSection">
+    <div class="book-card">
+      <img src="book1.jpg" alt="صورة الكتاب">
+      <h3>عنوان الكتاب</h3>
+      <p>اسم المؤلف</p>
+      <p>تاريخ النشر: 2021</p>
+    </div>
+    <div class="book-card">
+      <img src="book2.jpg" alt="صورة الكتاب">
+      <h3>عنوان الكتاب</h3>
+      <p>اسم المؤلف</p>
+      <p>تاريخ النشر: 2020</p>
+    </div>
+    <div class="book-card">
+        <img src="book2.jpg" alt="صورة الكتاب">
+        <h3>عنوان الكتاب</h3>
+        <p>اسم المؤلف</p>
+        <p>تاريخ النشر: 2020</p>
+      </div>
+      <div class="book-card">
+        <img src="book2.jpg" alt="صورة الكتاب">
+        <h3>عنوان الكتاب</h3>
+        <p>اسم المؤلف</p>
+        <p>تاريخ النشر: 2020</p>
+      </div>
+      <div class="book-card">
+        <img src="book2.jpg" alt="صورة الكتاب">
+        <h3>عنوان الكتاب</h3>
+        <p>اسم المؤلف</p>
+        <p>تاريخ النشر: 2020</p>
+      </div>
+      <div class="book-card">
+        <img src="book2.jpg" alt="صورة الكتاب">
+        <h3>عنوان الكتاب</h3>
+        <p>اسم المؤلف</p>
+        <p>تاريخ النشر: 2020</p>
+      </div>
+      <div class="book-card">
+        <img src="book2.jpg" alt="صورة الكتاب">
+        <h3>عنوان الكتاب</h3>
+        <p>اسم المؤلف</p>
+        <p>تاريخ النشر: 2020</p>
+      </div>
+      <div class="book-card">
+        <img src="book2.jpg" alt="صورة الكتاب">
+        <h3>عنوان الكتاب</h3>
+        <p>اسم المؤلف</p>
+        <p>تاريخ النشر: 2020</p>
+      </div>
+  
+  </section>
+
+
+
+
+
+
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Search for a book">
+  <button onclick="searchBooks()">Search</button>
+</div>
+
+<div class="book-container" id="bookContainer"></div>
+-->
+    <script src="script.js"></script>
+  </body>
+</html>

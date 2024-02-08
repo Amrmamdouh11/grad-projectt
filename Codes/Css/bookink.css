@@ -1,0 +1,58 @@
+.container{
+   text-align: center;
+    justify-content: center;
+    background-color: #2e3397;
+    margin: auto;
+    margin-left: 20%;
+    height: 70vh;
+    width:66%;
+}
+.container .emlaa{
+    width: 50%;
+    height: 55vh;
+    border: solid 2px  rgb(255, 255, 255);
+  margin: auto;
+    margin-top: 60px;
+    background-image:  linear-gradient(rgba( 44, 134,207 ,0.4 ),rgba(24, 37, 181, 0.4));
+   
+ }
+ .container .emlaa h2,.container .emlaa p,label{
+    color: #fff;
+    text-align: center;
+  }
+  .container  h2{
+    padding-top: 20px;
+    color: #fff;
+}
+.emlaa .container-form{
+    width: 80%;
+    height: 75%;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+.emlaa .name label{
+    color: #fff;
+}
+.container-form p{
+    color: #fff;
+}
+.container .emlaa .name input{
+    background-color: transparent;
+    border: none;
+    width: 100%;
+}
+.container .emlaa .name {
+    background-image: linear-gradient(rgba( 44, 134,207 ,0.4 ),rgba(26,41, 207,0.4 ));
+    border-bottom: solid  #fff;;
+    margin-bottom: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top:30px;
+}
+button{
+    border: 1px solid #fff;
+    border-radius: 7px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}

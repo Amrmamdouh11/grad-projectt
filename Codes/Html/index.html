@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- render all element normally -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!--font awesome lirary-->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body onload="myFunction()">
+    <div id="loader"></div>
+
+    <header style="display: none" id="header">
+      <h2 class="logo">Logo</h2>
+      <nav class="navigation">
+        <ul>
+          <li><a href="#">home</a></li>
+          <li><a href="#">about</a></li>
+          <li><a href="#">services</a></li>
+          <li><a href="#">contact</a></li>
+          <li><button class="button-login" onclick="showLoginModal()">Login</button></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="continer" style="display: none">
+      <h1>
+        Welcome!<br />modern medicine Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Ut modi soluta reiciendis repellat inventore ratione
+        dolore fugit quod esse assumenda.<i
+          class="fa-solid fa-handshake-angle"
+        ></i>
+      </h1>
+
+      <section id="sectors">
+        <h3 id="h3">SECTORES</h3>
+        <div class="buttes">
+          <div class="butt">
+            <a href="./PTC_page/excersice/face/index.html"> <button class="sec">excercise</button> </a>
+            <button class="sec">water</button>
+            <button class="sec">food</button>
+            <a href="./PTC_page/PTC_Proj/Services.html"> <button class="sec">Treatment sections</button> </a>
+            <a href="./Enneagram/enneagram.html"><button class="sec" >Enneagram <img src="./enneagram.png" width="40px"></button> </a>
+
+          </div>
+          <div class="butt">
+            <a href="./Book Quotes/Book Quotes.html"><button class="sec">Reading</button></a>
+            <button class="sec">excercise</button>
+            <button class="sec">excercise</button>
+            <button class="sec">excercise</button>
+            <button class="sec">excercise</button>
+          </div>
+        </div>
+      </section>
+
+
+    
+    
+    
+    <div class="maps">
+      <h2><img src="./plus-medical-regular-24.png" >Choose The Nearest Hospital From Your location:</h2>
+    <a href="https://goo.gl/maps/Jxz8kAAx2JuKx9GY8" target="_blank"> <img src="PTC_page/location/WhatsApp Image 2022-12-25 at 12.22.06 AM.jpeg"></a>
+    
+    </div>
+    
+    </div>
+    
+
+
+    </div>
+
+    <!-- Login modal -->
+  <div id="modal">
+    <form id="loginForm" onsubmit="submitLoginForm(); return false;">
+      <!--  login form fields and styling -->
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  <!-- Overlay to cover the entire body -->
+  <div id="overlay"></div>
+
+  <!-- Notification element -->
+  <div id="notification"></div>
+
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+<!--
+---------------------------------------------------------HTML CODE
+<ul class="nav">
+  <li onclick="showLogin()">Login</li>
+  <li onclick="showSignup()">Sign up</li>
+  <li onclick="showForgotPassword()">Forgot password</li>
+  <li onclick="showSubscribe()">Subscribe</li>
+  <li onclick="showContactUs()">Contact us</li>
+</ul>
+<div class="wrapper">
+  <div class="rec-prism">
+    <div class="face face-top">
+      <div class="content">
+        <h2>Subscribe</h2>
+        <small>Enter your email so we can send you the latest updates!</small>
+        <form onsubmit="event.preventDefault()">
+          <div class="field-wrapper">
+            <input type="text" name="email" placeholder="email">
+            <label>e-mail</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="submit" onclick="showThankYou()">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="face face-front">
+      <div class="content">
+        <h2>Sign in</h2>
+        <form onsubmit="event.preventDefault()">
+          <div class="field-wrapper">
+            <input type="text" name="username" placeholder="username">
+            <label>username</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="password" name="password" placeholder="password" autocomplete="new-password">
+            <label>password</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="submit" onclick="showThankYou()">
+          </div>
+          <span class="psw" onclick="showForgotPassword()">Forgot Password?   </span>
+          <span class="signup" onclick="showSignup()">Not a user?  Sign up</span>
+        </form>
+      </div>
+    </div>
+    <div class="face face-back">
+      <div class="content">
+        <h2>Forgot your password?</h2>
+        <small>Enter your email so we can send you a reset link for your password</small>
+        <form onsubmit="event.preventDefault()">
+          <div class="field-wrapper">
+            <input type="text" name="email" placeholder="email">
+            <label>e-mail</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="submit" onclick="showThankYou()">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="face face-right">
+      <div class="content">
+        <h2>Sign up</h2>
+        <form onsubmit="event.preventDefault()">
+          <div class="field-wrapper">
+            <input type="text" name="email" placeholder="email">
+            <label>e-mail</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="password" name="password" placeholder="password" autocomplete="new-password">
+            <label>password</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="password" name="password2" placeholder="password" autocomplete="new-password">
+            <label>re-enter password</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="submit" onclick="showThankYou()">
+          </div>
+          <span class="singin" onclick="showLogin()">Already a user?  Sign in</span>
+        </form>
+      </div>
+    </div>
+    <div class="face face-left">
+      <div class="content">
+        <h2>Contact us</h2>
+        <form onsubmit="event.preventDefault()">
+          <div class="field-wrapper">
+            <input type="text" name="name" placeholder="name">
+            <label>Name</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="text" name="email" placeholder="email">
+            <label>e-mail</label>
+          </div>
+          <div class="field-wrapper">
+            <textarea placeholder="your message"></textarea>
+            <label>your message</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="submit" onclick="showThankYou()">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="face face-bottom">
+      <div class="content">
+        <div class="thank-you-msg">
+          Thank you!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+------------------------------------------------------------CSS CODE
+
+
+
+// Dimensions
+$prism-height: 350px;
+$prism-length: 250px;
+$prism-depth: $prism-length;
+$spacing: 20px;
+$br: 3px;
+
+// Colors
+$text-light: #fff;
+$text-dark: #666;
+$blue: #03a9f4;
+$smoke: #f9f9fa;
+$coral: #ff5751;
+$navy-blue: #42509e;
+$green: #07ad90;
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Tahoma,Verdana,Segoe,sans-serif; 
+  font-size: 14px;
+  background: #f6fffd;
+  padding: $spacing;
+  text-align: center;
+}
+.wrapper{
+  width: $prism-length;
+  height: $prism-height;
+  margin: 60px auto;
+  perspective: 600px;
+  text-align: left;
+}
+
+.rec-prism {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  transition: transform 0.5s ease-in;
+}
+
+.face {
+  position: absolute;
+  width: $prism-length;
+  height: $prism-height;
+  padding: $spacing;
+  background: rgba(250,250,250,0.96);
+  border: 3px solid $green;
+  border-radius: 3px;
+  
+  .content{
+    color: $text-dark;
+    h2{
+      font-size: 1.2em;
+      color: $green;
+    }
+    .field-wrapper{
+      margin-top: $spacing*1.5;
+      position: relative;
+
+      label{
+        position: absolute;
+        pointer-events: none;
+        font-size: 0.85em;
+        top: 40%;
+        left: 0;
+        transform: translateY(-50%);
+        transition: all ease-in 0.25s;
+        color: lighten($text-dark, 20%);
+      }
+      input[type="text"], input[type="password"], input[type="submit"], textarea{
+        -webkit-appearance: none;
+        appearance: none;
+        &:focus{
+          outline: none;
+        }
+      }
+      input[type="text"], input[type="password"], textarea{
+        width: 100%;
+        border: none;
+        background: transparent;
+        line-height: 2em;
+        border-bottom: 1px solid $green;
+        color: $text-dark;
+
+        &::-webkit-input-placeholder{
+          opacity: 0;
+        }
+        &::-moz-placeholder{
+          opacity: 0;
+        }
+        &:-ms-input-placeholder{
+          opacity: 0;
+        }
+        &:-moz-placeholder { 
+          opacity: 0;
+        }
+        &:focus, &:not(:placeholder-shown){
+          + label{
+            top: -35%;
+            color: $navy-blue;
+          }
+        }
+      }
+      input[type="submit"]{
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        width: 100%;
+        background: $green;
+        line-height: 2em;
+        color: $text-light;
+        border: 1px solid $green;
+        border-radius: $br;
+        padding: $spacing/4;
+        
+        &:hover{
+          opacity: 0.9;
+        }
+        &:active{
+          transform: scale(0.96);
+        }
+      }
+      textarea{
+        resize: none;
+        line-height: 1em;
+        &:focus, &:not(:placeholder-shown){
+          + label{
+            top: -25%;
+          }
+        }
+      }
+    }
+  }
+  
+  .thank-you-msg{
+    position: absolute;
+    width: 200px;
+    height: 130px;
+    text-align: center;
+    font-size: 2em;
+    color: $green;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    
+    &:after{
+      position: absolute;
+      content: '';
+      width: 50px;
+      height: 25px;
+      border: 10px solid $green;
+      border-right: 0;
+      border-top: 0;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%) rotate(0deg) scale(0);
+      transform: translate(-50%, -50%) rotate(0deg) scale(0);
+      -webkit-animation: success ease-in 0.15s forwards;
+      animation: success ease-in 0.15s forwards;
+      animation-delay: 2.5s;
+    }
+  }
+  &-front{ 
+    transform: rotateY(0deg) translateZ($prism-length/2);  
+  }
+  &-top{ 
+    height: $prism-depth;
+    transform: rotateX(90deg) translateZ($prism-depth/2); 
+  }
+  &-back{ 
+    transform: rotateY(180deg) translateZ($prism-length/2); 
+  }
+  &-right{ 
+    transform: rotateY(90deg) translateZ($prism-length/2); 
+  }
+  &-left{ 
+    transform: rotateY(-90deg) translateZ($prism-length/2); 
+  }
+  &-bottom{ 
+    height: $prism-depth;
+    transform: rotateX(-90deg) translateZ($prism-height - ($prism-depth/2));
+  }
+}
+
+.nav{
+  margin: $spacing 0;
+  padding: 0;
+  
+  li{
+    display: inline-block;
+    list-style-type: none;
+    font-size: 1em;
+    margin: 0 $spacing/2;
+    color: $navy-blue;
+    position: relative;
+    cursor: pointer;
+    &:after{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 20px;
+      border-bottom: 1px solid $navy-blue;
+      transition: all ease-in 0.25s;
+    }
+    &:hover:after{
+      width: 100%;
+    }
+  }
+}
+
+.psw, .signup, .singin{
+  display: block;
+  margin: $spacing 0;
+  font-size: 0.75em;
+  text-align: center;
+  color: $navy-blue;
+  cursor: pointer;
+}
+
+small{
+  font-size: 0.7em;
+}
+@-webkit-keyframes success{
+    from {
+       -webkit-transform: translate(-50%, -50%) rotate(0) scale(0);
+       }
+    to {
+      -webkit-transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+    }
+}
+
+
+
+-------------------------------------------------------------JS CODE 
+
+
+let prism = document.querySelector(".rec-prism");
+
+function showSignup(){
+  prism.style.transform = "translateZ(-100px) rotateY( -90deg)";
+}
+function showLogin(){
+  prism.style.transform = "translateZ(-100px)";
+}
+function showForgotPassword(){
+  prism.style.transform = "translateZ(-100px) rotateY( -180deg)";
+}
+
+function showSubscribe(){
+  prism.style.transform = "translateZ(-100px) rotateX( -90deg)";
+}
+
+function showContactUs(){
+  prism.style.transform = "translateZ(-100px) rotateY( 90deg)";
+}
+
+function showThankYou(){
+  prism.style.transform = "translateZ(-100px) rotateX( 90deg)";
+}
+
+-->
